@@ -5,7 +5,9 @@
 **<font style="color:#ff6700;">温馨提示</font>：每次新增一个功能或者修改某一部分代码的时候都需要<font style="color:red;">新建一个分支</font>，以确保合并新功能的时候不会合并其他人或者自己之前改动的东西。**
 
 ```
-// 基于正式分支建立自己的功能提交分支，表示基于正是库v1.0
+
+// 基于正式分支建立自己的功能提交分支，表示基于正式库v1.0
+
 git checkout -b boyang_dev origin/v1.0
 
 git add 需要提交的文件
@@ -17,6 +19,7 @@ git commit -m '提交信息'
 git status 查看状态信息
 
 // 提交本地boyang_dev分支作为远程的boyang_dev分支
+
 git push origin boyang_dev:boyang_dev
 
 git checkout dev1.0  切换分支到测试1.0
@@ -69,6 +72,7 @@ git push origin :boyang_dev 删除远程分支
       完成撤销,同时将代码恢复到前一commit_id 对应的版本。
 3. git reset commit_id 
      完成Commit命令的撤销，但是不对代码修改进行撤销，可以直接通过git commit 重新提交对本地代码的修改。
+4. git reset --hard  撤销当前分支的所有修改，回到上一次提交的内容
 
 #### 1.1.2删除本地和远程分支
 
@@ -80,6 +84,8 @@ git branch -D 分支名
 git push origin :分支名
 
 ```
+
+#### 1.1.3 分支加标签
 
 ### 1.2冲突解决
 找到对应冲突的文件，里面会有断层提示。修改成你想要的代码后，进行add操作，然后再push到远程
@@ -100,12 +106,75 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 ```
 
+在没有`add` 修改文件的时候，新建分支去修改其他功能，这时会把所有修改的文件都带过去。需要将在前一个分支修改过的文件在其分支下进行**add**操作，类似于添加分支控制到修改文件。这样再去新建分支
+
 
 ## 二、如何在测试环境更新代码
 
 ### 2.1登陆测试环境同步服务器代码
 
-* 登陆测试服务器
+```
+ssh 用户名@主机地址
+输入：登录密码
+```
+
 * 进入到测试环境目录，`ls`查看目录结构
-* 进入到`cd /opt/webroot/xxx/v1.0`,再次运行`git pull`
-* 代码同步完成了，记得`exit;`退出服务器
+* cd 需要更新的目录
+* 运行`git pull`
+* 测试环境的代码就都已经同步完成了，记得`exit;`退出服务器
+
+### 2.2登陆正式环境同步服务器代码
+
+同上操作
+
+https://juejin.im/book/5a124b29f265da431d3c472e
+
+## 常用命令
+
+```
+
+git init : 创建仓库
+git add : 把修改提交到暂存区
+git commit -m "" :  把暂存区的所有修改提交到分支
+git checkout -- file : 丢弃工作区的修改
+git reset HEAD file : 把暂存区的修改撤销掉（unstage），重新放回工作区
+git log (--pretty=oneline): 查看提交的历史记录
+git reset --hard HEAD^ : 退回到上一个版本
+git reset --hard 版本号 ： 退回到某个版本
+git reflog : 记录每一次命令
+git rm : 从版本库中删除文件
+
+ssh-keygen -t rsa -C "新注释"
+git push origin master : 把本地库推送到远程库
+git clone : 克隆一个本地库
+git checkout -b 分支名 ： 创建并切换分支
+git branch 分支名 ： 创建分支
+git checkout 分支名 ：　切换分支
+git branch ： 查看当前分支
+git merge 分支名 ： 合并分支
+git branch -d 分支名 ：删除分支
+git log --graph 查看分支合并图
+git merge --no-ff -m "备注" 分支名 ： 禁用fast forward 方式合并分支，并创建一个新的commit
+git stash :　把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+git stash list : 查看工作现场
+git stash apply : 恢复后，stash内容并不删除，你需要用git stash drop来删除
+git stash pop : 恢复的同时把stash内容也删了
+git branch -D 分支名 ： 强制删除分支
+git remote -v : 查看远程仓库的信息
+git push origin 分支名 ： 推送分支到远程分支
+git checkout -b dev origin/dev : 创建远程origin的dev分支到本地
+git branch --set-upstream dev origin/dev : 指定本地dev分支与远程origin/dev分支的链接 
+git pull : 拉取最新分支
+git tag 版本号 ： 添加标签
+git tag : 查看所有标签
+git tag -d 版本号 ： 删除标签
+git push origin 版本号 : 推送某个标签到远程
+git push origin --tags : 一次性推送全部尚未推送到远程的本地标签
+删除远程标签方法：
+先删除本地标签：git tag -d 标签名
+再删除远程标签：git push origin :refs/tags/标签名
+
+忽略某些文件时，需要编写.gitignore；
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
+
+```
