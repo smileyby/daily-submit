@@ -127,8 +127,6 @@ ssh 用户名@主机地址
 
 同上操作
 
-https://juejin.im/book/5a124b29f265da431d3c472e
-
 ## 常用命令
 
 ```
@@ -178,3 +176,5 @@ git push origin --tags : 一次性推送全部尚未推送到远程的本地标�
 .gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
 
 ```
+
+更多关于git的操作和原理，请移步[Pro Git（中文版）](http://git.oschina.net/progit/)
