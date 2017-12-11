@@ -97,7 +97,7 @@ git push origin :分支名
 $ git push
 To https://git.coding.net/feiwu_yl/mibo.git
  ! [rejected]        dev_v1.0 -> dev_v1.0 (fetch first)
-error: failed to push some refs to 'https://git.coding.net/feiwu_yl/mibo.git'
+error: failed to push some refs to 'xxxxxxxxxxxxxxxxxxxx.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
