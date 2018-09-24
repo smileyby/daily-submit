@@ -108,6 +108,23 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 在没有`add` 修改文件的时候，新建分支去修改其他功能，这时会把所有修改的文件都带过去。需要将在前一个分支修改过的文件在其分支下进行**add**操作，类似于添加分支控制到修改文件。这样再去新建分支
 
+merge时显示信息：
+
+```
+Please enter a message to explain why this merge is necessary .....
+```
+
+解决办法：
+```
+//1.按键盘字母 i 进入insert模式
+
+//2.修改最上面那行黄色合并信息,可以不修改
+
+//3.按键盘左上角"Esc"
+
+//4.输入":wq",注意是冒号+wq,按回车键即可
+```
+
 
 ## 二、如何在测试环境更新代码
 
