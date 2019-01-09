@@ -125,6 +125,19 @@ Please enter a message to explain why this merge is necessary .....
 //4.输入":wq",注意是冒号+wq,按回车键即可
 ```
 
+### 1.4 如何忽略已经提交过的文件
+
+> 最近在项目中遇到，需要需略已经提交过的文件
+> 发现如果文件已经进行了`git add/git commit/git push`其中的任何一个操作，再去修改 `.gitignore`文件是无效的，需要清除cached然后重新添加就可以了
+
+```
+// 如果觉得此方法比较暴力，可以对要想忽略的某个文件进行单独删除
+// git rm --cached <fileName>
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+git push
+```
 
 ## 二、如何在测试环境更新代码
 
