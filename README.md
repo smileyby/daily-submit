@@ -175,6 +175,13 @@ git commit 添加回滚信息
 git push
 ```
 
+## 查看单个文件的修改记录
+```
+git log filename // 可以看到对应文件的提交记录（commit_id）
+git log -p filename // 可以查看每次提交具体修改了哪里（具体到哪一行有变动）
+git show commit_id filename // 可以查看某个commit_id下修改的内容
+```
+
 ## 常用命令
 
 ```
