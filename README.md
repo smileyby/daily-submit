@@ -48,9 +48,9 @@ git push origin v1.0  讲本地已经合并的正式分支代码推到远程正�
 
 // 到这里所有该提交和更新的地方都已经更新完成，不要忘记删除自己的这个分支。以免下一次自己又在这个分支提交代码造成混乱提交
 
-git branch -D boyang_dev 强制删除分支
+git branch -d [分支名] 强制删除分支
 
-git push origin :boyang_dev 删除远程分支
+git push origin --delete [分支名] 删除远程分支
 
 // 到这里就完成了整个修改-提交-更新的全过程
 
