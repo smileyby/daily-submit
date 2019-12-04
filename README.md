@@ -179,7 +179,8 @@ git push
 ```
 git log filename // 可以看到对应文件的提交记录（commit_id）
 git log -p filename // 可以查看每次提交具体修改了哪里（具体到哪一行有变动）
-git show commit_id filename // 可以查看某个commit_id下修改的内容
+git log --pretty=oneline [文件名] 显示完成的commit_id和提交信息并在一行显示
+git show [commit_id] [filename] // 可以查看某个commit_id下修改的内容
 // 退出英文状态下按Q
 ```
 
