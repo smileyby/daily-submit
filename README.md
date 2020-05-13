@@ -184,6 +184,9 @@ git show [commit_id] [filename] // 可以查看某个commit_id下修改的内容
 // 退出英文状态下按Q
 ```
 
+## git fetch --prune
+当本地分支与远程分支不同步的时候，运行上面这条命令即可
+
 ## 常用命令
 
 ```
