@@ -185,7 +185,11 @@ git show [commit_id] [filename] // 可以查看某个commit_id下修改的内容
 ```
 
 ## git fetch --prune
-当本地分支与远程分支不同步的时候，运行上面这条命令即可
+git branch -a 查看全部本地分支，发现有多余的分支在远程，于是想将其删除
+git push origin --delete branch_name 
+Git says remote ref does not exist when I delete remote branch
+
+此时说明，本地仓库的分支列表与远程仓库的分支列表不同步，则需要运行这条命令来解决
 
 ## 常用命令
 
