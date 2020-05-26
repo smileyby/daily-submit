@@ -191,6 +191,10 @@ Git says remote ref does not exist when I delete remote branch
 
 此时说明，本地仓库的分支列表与远程仓库的分支列表不同步，则需要运行这条命令来解决
 
+## 撤销某个文件的修改（未add之前）
+该命令是丢弃该文件的工作区变化
+git checkout -- filename 
+
 ## 常用命令
 
 ```
